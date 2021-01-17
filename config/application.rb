@@ -19,6 +19,8 @@ module Baukis2
       g.test_framework :rspec
       g.controller_specs false
       g.view_specs false
-    end
+    en
+
+    config.hosts << "localhost"
   end
 end
