@@ -6,6 +6,4 @@ class StaffMember < ApplicationRecord
             self.hashed_password = nil
         end
     end
-
-    
 end

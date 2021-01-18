@@ -20,4 +20,5 @@ module ErrorHandlers
     private def rescue500(e)
         render "errors/internal_server_error", status: 500
     end
+end
         
