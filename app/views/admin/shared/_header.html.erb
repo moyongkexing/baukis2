@@ -1,3 +1,10 @@
 <header>
     <span class="logo-mark">BAUKIS2</span>
+    <%=
+        if current_administrator
+            link_to "ログアウト", :administrator_session, method: :delete
+        else
+            link_to "ログイン", :administrator_login
+        end
+    %>
 </header>
