@@ -8,14 +8,14 @@ StaffMember.create!(
     start_date: Date.today
 )
 
-family_name = %w{
+family_names = %w{
     佐藤:サトウ:sato
     鈴木:スズキ:suzuki
-    高橋:タカハシ：takahashi
+    高橋:タカハシ:takahashi
     田中:タナカ:tanaka
 }
 
-given_name = %w{
+given_names = %w{
     次郎:ジロウ:jiro
     三郎:サブロウ:saburo
     松子:マツコ:matsuko
@@ -24,8 +24,8 @@ given_name = %w{
 }
 
 20.times do |n|
-    fn = family_name[n % 4].split(":")
-    gn = given_name[n % 5].split(":")
+    fn = family_names[n % 4].split(":")
+    gn = given_names[n % 5].split(":")
 
     StaffMember.create!(
         email: "#{fn[2]}.#{gn[2]}@example.com",
