@@ -16,15 +16,12 @@ describe "管理者による職員管理" do
         }
     end
 
-<<<<<<< HEAD
     describe "一覧" do
         example "成功" do
             get admin_staff_members_url
             expect(response.status).to eq(200)
         end
     end
-=======
->>>>>>> 4b65ca4... 管理者用のセッションタイムアウトの実装とテストを作成
 
     describe "新規登録" do
         let(:params_hash) { attributes_for(:staff_member) }
