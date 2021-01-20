@@ -21,7 +21,11 @@ class Admin::SessionsController < Admin::Base
                 render action: "new"
             else
                 session[:administrator_id] = administrator.id
+<<<<<<< HEAD
                 session[:admin_last_access_time] = Time.current
+=======
+                session[:last_access_time] = Time.current
+>>>>>>> 4b65ca4... 管理者用のセッションタイムアウトの実装とテストを作成
                 flash.notice = "ログインしました。"
                 redirect_to :admin_root
             end

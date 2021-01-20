@@ -29,8 +29,13 @@ class Admin::Base < ApplicationController
 
     private def check_timeout
         if current_administrator
+<<<<<<< HEAD
             if session[:admin_last_access_time] >= TIMEOUT.ago
                 session[:admin_last_access_time] = Time.current
+=======
+            if session[:last_access_time] >= TIMEOUT.ago
+                session[:last_access_time] = Time.current
+>>>>>>> 4b65ca4... 管理者用のセッションタイムアウトの実装とテストを作成
             else
                 session.delete(:administrator_id)
                 flash.alert = "セッションがタイムアウトしました。"
