@@ -7,7 +7,7 @@ class StaffMember < ApplicationRecord
         end
     end
 
-    def acive?
+    def active?
         !suspended? && start_date <= Date.today && (end_date.nil? || end_date > Date.today)
         # 停止されてないよね？未来じゃなく過去に入社した人だよね？まだ退社してないよね？
     end
