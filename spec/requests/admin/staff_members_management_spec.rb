@@ -17,7 +17,21 @@ describe "管理者による職員管理" do
     end
 
     describe "更新" do
-        let(:staff_membe) { create(:staff_member) }
+        let(:staff_member) { create(:staff_member) }
         let(:params_hash) { attributes_for(:staff_member) }
+
+        example "suspendedフラグをセットする" do
+            params_hash.merge!(suspended: true)
+            patch admin_staff_member_url(staff_member), params: { staff_member: params_hash }
+            staff_member.reload
+            expect(staff_member).to be_suspended
+        end
+
+        example "hashed_passwordの値は書き換え不可" do
+            params_hash.delete(:password)
+            params_hash.merge!(hashed_password: "x")
+            expect { patch admin_staff_member_url(staff_member),
+                params: { staff_member: params_hash}}.not_to change { staff_member.hashed_password.to_s }
+        end
     end
 end
