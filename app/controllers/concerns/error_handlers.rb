@@ -3,11 +3,16 @@ module ErrorHandlers
 
     included do
         rescue_from StandardError, with: :rescue500
-        rescue_from Forbidden, with: :rescue403
-        rescue_from IpAdressRejected, with: :rescue403
+        rescue_from ApplicationController::Forbidden, with: :rescue403
+        rescue_from ApplicationController::IpAdressRejected, with: :rescue403
         rescue_from ActiveRecord::RecordNotFound, with: :rescue404
+        rescue_from ActionController::ParameterMissing, with: :rescue400
     end
 
+    private def rescue400(e)
+        render "errors/bad_request", status: 400
+    end
+    
     private def rescue403(e)
         @exception = e
         render "errors/forbidden", status: 403
