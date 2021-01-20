@@ -27,6 +27,12 @@ describe "管理者による職員管理" do
         example "例外ActionController::ParameterMissingが発生" do
             expect { post admin_staff_members_url }.to raise_error(ActionController::ParameterMissing)
         end
+
+        example "停止フラグがセットされたら強制的にログアウト" do
+            administrator.update_column(:suspended, true)
+            get admin_staff_members_url
+            expect(response).to redirect_to(admin_root_url)
+        end
     end
 
     describe "更新" do
