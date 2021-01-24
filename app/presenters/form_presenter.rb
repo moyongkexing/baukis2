@@ -18,14 +18,14 @@ class FormPresenter
 
     def text_field_block(name, label_text, options = {})
         markup(:div, class: "input-block") do |m|
-            m << label(name, label_text, class: options[:required] ? "required" : nil)
+            m << decorated_label(name, label_text, options)
             m << text_field(name, options)
         end
     end
 
     def password_field_block(name, label_text, options = {})
         markup(:div, class: "input-block") do |m|
-            m << label(name, label_text, class: options[:required] ? "required" : nil)
+            m << decorated_label(name, label_text, options)
             m << password_field(name, options)
         end
 
@@ -33,8 +33,12 @@ class FormPresenter
 
     def date_field_block(name, label_text, options = {})
         markup(:div, class: "input_block") do |m|
-            m << label(name, label_text, class: options[:required] ? "required" : nil)
+            m << decorated_label(name, label_text, options)
             m << date_field(name, options)
         end
+    end
+
+    private def decorated_label(name, label_text, options ={})
+        label(name, label_text, class: options[:required] ? "required" : nil)
     end
 end
