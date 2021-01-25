@@ -8,10 +8,10 @@ class Staff::CustomersController < Staff::Base
     end
 
     def new
-        @customer_form = Staff::CoustomerForm.new
+        @customer_form = Staff::CustomerForm.new
     end
 
     def edit
-        @customer_form = Staff::CustomerForm.new(Customer.find(pmaras[:id]))
+        @customer_form = Staff::CustomerForm.new(Customer.find(params[:id]))
     end
 end
