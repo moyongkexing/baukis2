@@ -57,7 +57,8 @@ company_names = %w(OIAX ABC XYZ)
                 prefecture: Address::PREFECTURE_NAMES.sample,
                 city: city_names.sample,
                 address1: "試験4-5-6",
-                address2: "company_names.sample"
+                address2: "company_names.sample",
+                company_name: company_names.sample
             )
         end
     end
