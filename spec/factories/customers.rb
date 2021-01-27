@@ -8,7 +8,7 @@ FactoryBot.define do
         password { "pw" }
         birthday { Date.new(1970, 1, 1) }
         gender { "male" }
-        assciation :home_address, strategy: :build
-        assciation :work_address, strategy: :build
+        association :home_address, strategy: :build
+        association :work_address, strategy: :build
     end
 end
