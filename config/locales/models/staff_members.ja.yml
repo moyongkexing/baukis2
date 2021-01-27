@@ -12,7 +12,7 @@ ja:
     errors:
       models:
         staff_member:
-          atrributes:
+          attributes:
             email:
               taken: が他の職員と重複しています。
             start_date:

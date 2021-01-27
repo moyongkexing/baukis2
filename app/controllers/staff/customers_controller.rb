@@ -23,7 +23,7 @@ class Staff::CustomersController < Staff::Base
             redirect_to action: "index"
         else
             flash.now.alert = "入力に誤りがあります。"
-            render action "new"
+            render action: "new"
         end
     end
 
@@ -35,7 +35,7 @@ class Staff::CustomersController < Staff::Base
             redirect_to action: "index"
         else
             flash.now.alert = "入力に誤りがあります。"
-            render action "edit"
+            render action: "edit"
         end
     end
 
